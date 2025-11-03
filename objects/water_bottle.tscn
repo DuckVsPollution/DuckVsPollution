@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://curfj4gugyuf2"]
+
+[ext_resource type="Script" uid="uid://42pik2v1xt6k" path="res://scripts/objects/water_bottle.gd" id="1_01wgm"]
+[ext_resource type="Texture2D" uid="uid://d1x0i1pj4g3g5" path="res://assets/garrafa-agua/garrafa_agua.png" id="1_kmddu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01wgm"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78ucr"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlets"]
+atlas = ExtResource("1_kmddu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7l34"]
+atlas = ExtResource("1_kmddu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fej74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlets")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7l34")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WaterBottle" type="RigidBody2D"]
+lock_rotation = true
+freeze = true
+script = ExtResource("1_01wgm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_01wgm")
+
+[node name="PlayerArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+shape = SubResource("CircleShape2D_78ucr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fej74")
+autoplay = "default"
+
+[connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]

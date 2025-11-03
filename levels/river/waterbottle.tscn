@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://dn1355bf5vrr3"]
+
+[ext_resource type="Script" uid="uid://c2rur8swa1jwg" path="res://scripts/levels/river/waterbottle.gd" id="1_olsrw"]
+[ext_resource type="Texture2D" uid="uid://c443qcaqwqr6t" path="res://assets/garrafa-agua/garrafa_agua_brilhando.png" id="2_olsrw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2evh"]
+atlas = ExtResource("2_olsrw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bbyk"]
+atlas = ExtResource("2_olsrw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87klm"]
+atlas = ExtResource("2_olsrw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abqwh"]
+atlas = ExtResource("2_olsrw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olsrw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2evh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bbyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87klm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abqwh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a2evh"]
+radius = 16.4924
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bbyk"]
+radius = 18.4391
+
+[node name="Waterbottle" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_olsrw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_olsrw")
+autoplay = "default"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a2evh")
+
+[node name="PlayerArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+shape = SubResource("CircleShape2D_1bbyk")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

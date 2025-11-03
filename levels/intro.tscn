@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx7ihjc6fomk3"]
+
+[ext_resource type="Texture2D" uid="uid://bogqx3mems0th" path="res://assets/ui/background.png" id="1_7ba2f"]
+[ext_resource type="Script" uid="uid://7bp4606xptma" path="res://scripts/levels/intro.gd" id="1_32ggn"]
+[ext_resource type="Texture2D" uid="uid://1mjpmlp8fedo" path="res://assets/ui/textbox_background.png" id="1_q3mgg"]
+[ext_resource type="FontFile" uid="uid://ddmipjgckb4xp" path="res://assets/ui/font/ChiKareGo2.ttf" id="2_7ba2f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_32ggn"]
+texture = ExtResource("1_7ba2f")
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_32ggn")
+d_file = "res://dialogue/intro.json"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_32ggn")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 130)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_q3mgg")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_7ba2f")
+theme_override_fonts/mono_font = ExtResource("2_7ba2f")
+theme_override_fonts/italics_font = ExtResource("2_7ba2f")
+theme_override_fonts/bold_italics_font = ExtResource("2_7ba2f")
+theme_override_fonts/bold_font = ExtResource("2_7ba2f")
+fit_content = true
+
+[node name="continuar" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -106.0
+offset_top = -57.0
+offset_right = -14.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Continuar"
+
+[connection signal="pressed" from="CanvasLayer/continuar" to="." method="_on_continuar_pressed"]

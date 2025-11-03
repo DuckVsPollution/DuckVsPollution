@@ -1,0 +1,358 @@
+[gd_scene load_steps=29 format=3 uid="uid://boc6fpwcf76kq"]
+
+[ext_resource type="Texture2D" uid="uid://deffqvs27a7kw" path="res://assets/actors/guaxinim/guaxinim.png" id="1_hdvwt"]
+[ext_resource type="Script" uid="uid://hsombk3qudyg" path="res://scripts/actors/guaxinim_store.gd" id="2_bd36l"]
+[ext_resource type="Texture2D" uid="uid://1mjpmlp8fedo" path="res://assets/ui/textbox_background.png" id="2_etvxm"]
+[ext_resource type="FontFile" uid="uid://ddmipjgckb4xp" path="res://assets/ui/font/ChiKareGo2.ttf" id="3_s6gb5"]
+[ext_resource type="Texture2D" uid="uid://c05mfgi7mlphe" path="res://assets/castanha/castanha.png" id="4_s6gb5"]
+[ext_resource type="Texture2D" uid="uid://bdm40imtxq7on" path="res://assets/lata/lata.png" id="5_sis26"]
+[ext_resource type="Texture2D" uid="uid://d1x0i1pj4g3g5" path="res://assets/garrafa-agua/garrafa_agua.png" id="6_bd36l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdvwt"]
+atlas = ExtResource("1_hdvwt")
+region = Rect2(0, 0, 24, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sis26"]
+atlas = ExtResource("1_hdvwt")
+region = Rect2(24, 0, 24, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd36l"]
+atlas = ExtResource("1_hdvwt")
+region = Rect2(48, 0, 24, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upcsq"]
+atlas = ExtResource("1_hdvwt")
+region = Rect2(72, 0, 24, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vv7x"]
+atlas = ExtResource("1_hdvwt")
+region = Rect2(0, 0, 24, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etvxm"]
+atlas = ExtResource("1_hdvwt")
+region = Rect2(24, 0, 24, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6gb5"]
+atlas = ExtResource("1_hdvwt")
+region = Rect2(48, 0, 24, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhrfb"]
+atlas = ExtResource("1_hdvwt")
+region = Rect2(72, 0, 24, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sis26"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdvwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sis26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd36l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upcsq")
+}],
+"loop": true,
+"name": &"barraca_guaxinim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vv7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etvxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6gb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhrfb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdvwt"]
+size = Vector2(109.5, 84.25)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xhrfb"]
+font = ExtResource("3_s6gb5")
+font_size = 24
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xhrfb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj7ed"]
+atlas = ExtResource("4_s6gb5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whcuh"]
+atlas = ExtResource("4_s6gb5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bd36l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj7ed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whcuh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tqk4"]
+atlas = ExtResource("5_sis26")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16if3"]
+atlas = ExtResource("5_sis26")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b5bce"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tqk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16if3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo3cs"]
+atlas = ExtResource("6_bd36l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6mrf"]
+atlas = ExtResource("6_bd36l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hy0ec"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo3cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6mrf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Guaxinim" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sis26")
+animation = &"barraca_guaxinim"
+autoplay = "barraca_guaxinim"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 16
+script = ExtResource("2_bd36l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hdvwt")
+
+[node name="Store" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+
+[node name="Control" type="Control" parent="Store"]
+custom_minimum_size = Vector2(303, 135)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.5
+offset_top = -70.5
+offset_right = 197.5
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Store/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Store/Control/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_etvxm")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Store/Control/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Loja"
+label_settings = SubResource("LabelSettings_xhrfb")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xhrfb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Panel"]
+position = Vector2(8.5, 11.5)
+scale = Vector2(0.515625, 0.515625)
+sprite_frames = SubResource("SpriteFrames_bd36l")
+
+[node name="Label" type="Label" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_s6gb5")
+text = "10"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xhrfb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Panel"]
+position = Vector2(8.5, 11.5)
+scale = Vector2(0.515625, 0.515625)
+sprite_frames = SubResource("SpriteFrames_b5bce")
+
+[node name="Label" type="Label" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_s6gb5")
+text = "20"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xhrfb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Panel"]
+position = Vector2(8.5, 11.5)
+scale = Vector2(0.515625, 0.515625)
+sprite_frames = SubResource("SpriteFrames_hy0ec")
+
+[node name="Label" type="Label" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_s6gb5")
+text = "20"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_s6gb5")
+text = "| +2 pontos de vida"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_s6gb5")
+text = "| +50% de cadência de tiro"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_s6gb5")
+text = "| +50% de velocidade de disparo"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="BuyButton1" type="Button" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Comprar"
+
+[node name="BuyButton2" type="Button" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Comprar"
+
+[node name="BuyButton3" type="Button" parent="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Comprar"
+
+[node name="CloseButton" type="Button" parent="Store/Control"]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 146.0
+offset_right = 357.0
+offset_bottom = 171.0
+text = "Fechar"
+
+[connection signal="pressed" from="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/BuyButton1" to="Area2D" method="_on_buybutton_1_pressed"]
+[connection signal="pressed" from="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/BuyButton2" to="Area2D" method="_on_buybutton_2_pressed"]
+[connection signal="pressed" from="Store/Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/BuyButton3" to="Area2D" method="_on_buybutton_3_pressed"]
+[connection signal="pressed" from="Store/Control/CloseButton" to="Area2D" method="_on_close_button_pressed"]

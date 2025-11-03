@@ -1,0 +1,194 @@
+[gd_scene load_steps=26 format=4 uid="uid://foj3cn1tb1i0"]
+
+[ext_resource type="PackedScene" uid="uid://ckeewn5x4aewe" path="res://levels/world.tscn" id="1_2c7eb"]
+[ext_resource type="PackedScene" uid="uid://c68k4k52rmahq" path="res://actors/player.tscn" id="2_4u4fy"]
+[ext_resource type="PackedScene" uid="uid://c1fioye5wtqb3" path="res://actors/zaza.tscn" id="3_j015t"]
+[ext_resource type="PackedScene" uid="uid://dfa46m7opo21o" path="res://actors/filhote-pato.tscn" id="4_hlcqn"]
+[ext_resource type="PackedScene" uid="uid://bafbd0ybv2sjl" path="res://actors/tico.tscn" id="5_v3ojx"]
+[ext_resource type="PackedScene" uid="uid://beq5ggs7gawrq" path="res://actors/quercio.tscn" id="6_f7m14"]
+[ext_resource type="PackedScene" uid="uid://b2axeeeams74d" path="res://ui/pause_menu.tscn" id="8_0coyo"]
+[ext_resource type="PackedScene" uid="uid://cxkgp626h3ex4" path="res://actors/filhote_pato_pulando.tscn" id="8_2c7eb"]
+[ext_resource type="Texture2D" uid="uid://cfysmqb2xwp02" path="res://assets/extern/rpg/exterior.png" id="9_4u4fy"]
+[ext_resource type="Script" uid="uid://dyng7g4obl4em" path="res://scripts/levels/river/river_levels_area.gd" id="10_hlcqn"]
+[ext_resource type="PackedScene" uid="uid://hvgrshhj0js2" path="res://ui/level_select_menu.tscn" id="10_j015t"]
+[ext_resource type="Texture2D" uid="uid://dmgjcvn0ec0qp" path="res://assets/extern/water/Plates.png" id="12_v3ojx"]
+[ext_resource type="PackedScene" uid="uid://boc6fpwcf76kq" path="res://actors/guaxinim.tscn" id="13_yyuar"]
+[ext_resource type="Texture2D" uid="uid://c17ft0d1nrp5r" path="res://assets/actors/guaxinim/barraca_guaxinim.png" id="14_0coyo"]
+[ext_resource type="PackedScene" uid="uid://c2nq2lt1pnmbg" path="res://objects/castanha.tscn" id="15_0coyo"]
+[ext_resource type="PackedScene" uid="uid://curfj4gugyuf2" path="res://objects/water_bottle.tscn" id="16_p6qvs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j015t"]
+size = Vector2(62.5, 57)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7m14"]
+texture = ExtResource("9_4u4fy")
+10:34/size_in_atlas = Vector2i(6, 5)
+10:34/0 = 0
+10:34/0/texture_origin = Vector2i(-3, 26)
+10:34/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.0576, -12.4103, 2.33816, -12.0505, 5.03605, -3.0576, 12.0505, 0, 11.3311, 7.73393, -1.07915, 8, -8, 8, -12.4103, 7.19435, -10.6117, -1.43887, -4.85619, -2.51802)
+12:42/size_in_atlas = Vector2i(4, 5)
+12:42/0 = 0
+12:42/0/texture_origin = Vector2i(-2, 28)
+12:42/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.13675, -11.511, 6.83463, -11.8707, 8, -2.69788, 12.0505, 1.79859, 8, 8, -8, 8, -10.7915, 1.97845, -11.8707, -0.359716, -9.71237, -3.95689, -4.67633, -3.95689)
+1:23/size_in_atlas = Vector2i(4, 5)
+1:23/0 = 0
+1:23/0/texture_origin = Vector2i(-3, 23)
+1:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.41732, -10.4318, 5.39576, -10.6117, 8, -3.23746, 12.0505, 0, 11.3311, 7.73393, -1.07915, 8, -8, 8, -12.0505, 4.13675, -11.3311, 0.359718, -4.85619, -2.51802)
+5:23/size_in_atlas = Vector2i(4, 5)
+5:23/0 = 0
+5:23/0/texture_origin = Vector2i(1, 26)
+5:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.41732, -10.4318, 5.39576, -10.6117, 8, -4.67633, 13.4894, 0.359718, 11.3311, 7.73393, -1.07915, 8, -8, 8, -12.0505, 4.13675, -10.2519, -2.69788, -5.57562, -4.31661)
+9:24/size_in_atlas = Vector2i(4, 4)
+9:24/0 = 0
+9:24/0/texture_origin = Vector2i(1, 20)
+9:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.77703, -8, 3.23746, -8, 5.03605, -2.51802, 8, 1.97845, 5.75548, 8, -3.0576, 10.2519, -8, 8, -8, 5.57562, -8, -0.539576, -6.1152, -2.1583)
+12:14/size_in_atlas = Vector2i(4, 4)
+12:14/0 = 0
+12:14/0/texture_origin = Vector2i(1, 22)
+12:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.49647, -8, 3.95689, -8, 5.75548, -3.41732, 11.1512, 1.25901, 8, 8, -8, 8, -10.7915, -1.25901, -8, -4.13675)
+13:18/size_in_atlas = Vector2i(3, 3)
+13:18/0 = 0
+13:18/0/texture_origin = Vector2i(1, 13)
+13:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.13675, -4.85618, 3.41732, -5.03604, 5.03605, -2.51802, 8, 1.97845, 4.13675, 6.29506, -5.39576, 5.57562, -8, 4.85619, -8, -0.539576, -6.1152, -2.1583)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyuar"]
+texture = ExtResource("12_v3ojx")
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0coyo"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_f7m14")
+sources/1 = SubResource("TileSetAtlasSource_yyuar")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6qvs"]
+atlas = ExtResource("14_0coyo")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc3cr"]
+atlas = ExtResource("14_0coyo")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_514y6"]
+atlas = ExtResource("14_0coyo")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5prg3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6qvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc3cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_514y6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyuar"]
+size = Vector2(50.5, 10)
+
+[node name="game" type="Node2D"]
+y_sort_enabled = true
+
+[node name="world" parent="." instance=ExtResource("1_2c7eb")]
+z_index = -1
+position = Vector2(15, 593)
+
+[node name="player" parent="." instance=ExtResource("2_4u4fy")]
+position = Vector2(606, 911)
+
+[node name="Zaza" parent="." instance=ExtResource("3_j015t")]
+position = Vector2(456, 853)
+
+[node name="Filhote-pato" parent="." instance=ExtResource("4_hlcqn")]
+position = Vector2(474, 861)
+scale = Vector2(-1, 1)
+
+[node name="Filhote-pato2" parent="." instance=ExtResource("4_hlcqn")]
+position = Vector2(443, 847)
+
+[node name="Tico" parent="." instance=ExtResource("5_v3ojx")]
+position = Vector2(208, 579)
+
+[node name="Querico" parent="." instance=ExtResource("6_f7m14")]
+position = Vector2(280, 907)
+scale = Vector2(-1, 1)
+
+[node name="FilhotePatoPulando" parent="." instance=ExtResource("8_2c7eb")]
+position = Vector2(456, 818)
+
+[node name="Guaxinim" parent="." instance=ExtResource("13_yyuar")]
+position = Vector2(917, 727)
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_0coyo")]
+
+[node name="RiversLevelArea" type="Area2D" parent="."]
+process_mode = 3
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("10_hlcqn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RiversLevelArea"]
+position = Vector2(300, 514)
+shape = SubResource("RectangleShape2D_j015t")
+
+[node name="LevelSelectMenu" parent="RiversLevelArea" instance=ExtResource("10_j015t")]
+visible = false
+
+[node name="tree" type="TileMapLayer" parent="."]
+light_mask = 0
+y_sort_enabled = true
+position = Vector2(15, 593)
+tile_map_data = PackedByteArray("AAAXAAgAAAAKACIAAAAaAAYAAAAKACIAAAAWAAQAAAAKACIAAAAQAAQAAAAKACIAAAAoAAUAAAAKACIAAAAsAAgAAAAKACIAAAAsAAQAAAAKACIAAABDAAMAAAAKACIAAABHAAMAAAAKACIAAAAeAAUAAAAKACIAAAACAB4AAAAFABcAAAALAB8AAAAFABcAAAAbAB8AAAAFABcAAAAwABoAAAAFABcAAAAVABwAAAAFABcAAAAxAB8AAAAFABcAAAA/ABsAAAAFABcAAABAAB8AAAAFABcAAABPACEAAAAFABcAAABNABMAAAAFABcAAABPABoAAAAFABcAAABWABUAAAAFABcAAABLAAQAAAAFABcAAABQAAUAAAAFABcAAABNAAkAAAAFABcAAABWAAYAAAAFABcAAABVAAsAAAAFABcAAABXACMAAAAFABcAAABLACAAAAAJABgAAABDACAAAAAJABgAAAACACEAAAAJABgAAAAEACAAAAAJABgAAAARAB8AAAAJABgAAAAWAB8AAAAJABgAAAAiAB8AAAAJABgAAAAjABkAAAAJABgAAAAqABoAAAAJABgAAAAPABoAAAAJABgAAABCABcAAAAJABgAAAAqAB8AAAAJABgAAAAmABsAAAAJABgAAAAdABkAAAAJABgAAAA6AB8AAAAJABgAAAA9ACIAAAAJABgAAABHACAAAAAJABgAAABMACQAAAAJABgAAABMABwAAAAJABgAAABNAAsAAAAJABgAAABMAA0AAAAJABgAAABTABcAAAAJABgAAABPABQAAAAJABgAAABPAA4AAAAJABgAAAADAOj/AAABABcAAAAHAOj/AAAFABcAAAALAOn/AAAJABgAAAAOAN//AAAMAA4AAAAPAOP/AAANABIAAAAPAOj/AAABABcAAAATAOj/AAAFABcAAAAXAOn/AAAJABgAAAAaAN//AAAMAA4AAAAbAOP/AAANABIAAAAcAOn/AAABABcAAAAgAOn/AAAFABcAAAAkAOr/AAAJABgAAAAnAOD/AAAMAA4AAAAoAOT/AAANABIAAAAeAOP/AAABABcAAAAiAOP/AAAFABcAAAAmAOT/AAAJABgAAAAQAOH/AAABABcAAAAUAOH/AAAFABcAAAAYAOL/AAAJABgAAAADAOL/AAABABcAAAAHAOL/AAAFABcAAAALAOP/AAAJABgAAAADAN3/AAABABcAAAAHAN3/AAAFABcAAAALAN7/AAAJABgAAAAqAOj/AAABABcAAAAuAOj/AAAFABcAAAAyAOn/AAAJABgAAAAtAOL/AAABABcAAAAxAOL/AAAFABcAAAA1AOP/AAAJABgAAAArAN3/AAABABcAAAAvAN3/AAAFABcAAAAzAN7/AAAJABgAAAAdANz/AAABABcAAAAhANz/AAAFABcAAAAlAN3/AAAJABgAAAAQANv/AAABABcAAAAUANv/AAAFABcAAAAYANz/AAAJABgAAAA2AOj/AAABABcAAAA6AOj/AAAFABcAAAA+AOn/AAAJABgAAAA4AOP/AAABABcAAAA8AOP/AAAFABcAAABAAOT/AAAJABgAAAA4AN7/AAABABcAAAA8AN7/AAAFABcAAABAAN//AAAJABgAAABCAOj/AAABABcAAABGAOj/AAAFABcAAABKAOn/AAAJABgAAABDAOP/AAABABcAAABHAOP/AAAFABcAAABLAOT/AAAJABgAAABEAN3/AAABABcAAABIAN3/AAAFABcAAABMAN7/AAAJABgAAABPAOj/AAABABcAAABTAOj/AAAFABcAAABXAOn/AAAJABgAAABOAOH/AAABABcAAABSAOH/AAAFABcAAABWAOL/AAAJABgAAABPANz/AAABABcAAABTANz/AAAFABcAAABXAN3/AAAJABgAAAAXAAAAAAABABcAAAAbAAAAAAAFABcAAAAfAAEAAAAJABgAAAAYAPz/AAABABcAAAAcAPz/AAAFABcAAAAgAP3/AAAJABgAAAAnAAAAAAABABcAAAArAAAAAAAFABcAAAAvAAEAAAAJABgAAAAnAPz/AAABABcAAAArAPz/AAAFABcAAAAvAP3/AAAJABgAAAAzAAAAAAABABcAAAAzAPz/AAABABcAAAA+AP//AAABABcAAABCAP//AAAFABcAAABGAAAAAAAJABgAAABAAPv/AAABABcAAABEAPv/AAAFABcAAABIAPz/AAAJABgAAABKAP//AAABABcAAABOAP//AAAFABcAAABSAAAAAAAJABgAAABMAPv/AAABABcAAABQAPv/AAAFABcAAABUAPz/AAAJABgAAABQAP7/AAABABcAAABUAP7/AAAFABcAAABYAP//AAAJABgAAAAAAPn/AAAMAA4AAAABAPv/AAAMAA4AAAAAAP7/AAANABIAAAAFAPv/AAAMAA4AAAADAP7/AAAMAA4AAAAIAPv/AAAMAA4AAAAGAP7/AAAMAA4AAAAJAP7/AAANABIAAAALAPr/AAANABIAAAALAPz/AAANABIAAAARAPr/AQAAAAAAAAARAPv/AQAAAAEAAAASAPr/AQABAAAAAAASAPv/AQABAAEAAAA=")
+tile_set = SubResource("TileSet_0coyo")
+
+[node name="BarracaGuaxinim" type="AnimatedSprite2D" parent="."]
+position = Vector2(911, 727)
+sprite_frames = SubResource("SpriteFrames_5prg3")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(916, 733)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.75, 7)
+shape = SubResource("RectangleShape2D_yyuar")
+
+[node name="Itens" type="Node2D" parent="."]
+
+[node name="Castanha" parent="Itens" instance=ExtResource("15_0coyo")]
+position = Vector2(1171, 766)
+
+[node name="Castanha2" parent="Itens" instance=ExtResource("15_0coyo")]
+position = Vector2(943, 1032)
+
+[node name="Castanha3" parent="Itens" instance=ExtResource("15_0coyo")]
+position = Vector2(864, 712)
+
+[node name="Castanha4" parent="Itens" instance=ExtResource("15_0coyo")]
+position = Vector2(55, 1015)
+
+[node name="Castanha5" parent="Itens" instance=ExtResource("15_0coyo")]
+position = Vector2(693, 766)
+
+[node name="WaterBottle" parent="Itens" instance=ExtResource("16_p6qvs")]
+position = Vector2(343, 800)
+
+[node name="WaterBottle2" parent="Itens" instance=ExtResource("16_p6qvs")]
+position = Vector2(160, 1035)
+
+[node name="WaterBottle3" parent="Itens" instance=ExtResource("16_p6qvs")]
+position = Vector2(863, 732)
+
+[node name="WaterBottle4" parent="Itens" instance=ExtResource("16_p6qvs")]
+position = Vector2(1163, 988)
+
+[connection signal="level_selected" from="RiversLevelArea/LevelSelectMenu" to="RiversLevelArea" method="_on_level_select_menu_level_selected"]

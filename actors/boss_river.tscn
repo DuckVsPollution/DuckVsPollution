@@ -1,0 +1,125 @@
+[gd_scene load_steps=13 format=3 uid="uid://2a6mpj6yr1sj"]
+
+[ext_resource type="Script" uid="uid://cehml8baotale" path="res://scripts/actors/boss_river.gd" id="1_fha1u"]
+[ext_resource type="Texture2D" uid="uid://qbsi6dblu4yf" path="res://assets/actors/boss-river/boss_boiando.png" id="1_ym3ua"]
+[ext_resource type="Texture2D" uid="uid://5ptl2ii71sy2" path="res://assets/ui/borda-vida.png" id="2_1bxsv"]
+[ext_resource type="AudioStream" uid="uid://cu7dmfacoaab5" path="res://assets/sounds/danoBoss.ogg" id="4_4atg2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bxsv"]
+size = Vector2(78, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fha1u"]
+atlas = ExtResource("1_ym3ua")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4atg2"]
+atlas = ExtResource("1_ym3ua")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7xis"]
+atlas = ExtResource("1_ym3ua")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fm65"]
+atlas = ExtResource("1_ym3ua")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yiiyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fha1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4atg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7xis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fm65")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4atg2"]
+size = Vector2(50.5, 44.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fha1u"]
+texture = ExtResource("2_1bxsv")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[node name="BossRiver" type="CharacterBody2D"]
+collision_layer = 512
+collision_mask = 512
+script = ExtResource("1_fha1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -0.5)
+shape = SubResource("RectangleShape2D_1bxsv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.52, 0.52)
+sprite_frames = SubResource("SpriteFrames_yiiyt")
+autoplay = "default"
+
+[node name="BulletArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea"]
+position = Vector2(-7.75, -1)
+shape = SubResource("RectangleShape2D_4atg2")
+
+[node name="Stats" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="Stats"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 64
+
+[node name="Panel" type="Panel" parent="Stats/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fha1u")
+
+[node name="MarginContainer" type="MarginContainer" parent="Stats/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 1
+
+[node name="HealthBar" type="ProgressBar" parent="Stats/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Dano" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_4atg2")
+bus = &"Efects"
+
+[connection signal="area_entered" from="BulletArea" to="." method="_on_bullet_area_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

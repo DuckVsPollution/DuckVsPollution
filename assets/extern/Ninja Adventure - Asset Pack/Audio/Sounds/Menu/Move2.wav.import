@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddwm6tbiltv3"
+path="res://.godot/imported/Move2.wav-4c9a4fa084aa7e418ac26be050b70ee4.sample"
+
+[deps]
+
+source_file="res://assets/extern/Ninja Adventure - Asset Pack/Audio/Sounds/Menu/Move2.wav"
+dest_files=["res://.godot/imported/Move2.wav-4c9a4fa084aa7e418ac26be050b70ee4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
