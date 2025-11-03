@@ -1,0 +1,160 @@
+[gd_scene load_steps=8 format=3 uid="uid://bj74g0xpuejid"]
+
+[ext_resource type="Texture2D" uid="uid://d2hqmr8tshdwg" path="res://assets/ui/settings_background.png" id="1_51uel"]
+[ext_resource type="Script" uid="uid://3hlr81ddje0e" path="res://scripts/ui/levels_pause_menu.gd" id="1_skslj"]
+[ext_resource type="FontFile" uid="uid://ddmipjgckb4xp" path="res://assets/ui/font/ChiKareGo2.ttf" id="3_k2hxd"]
+[ext_resource type="PackedScene" uid="uid://qctv6ksl33qc" path="res://ui/volume_slider.tscn" id="4_6ahcu"]
+[ext_resource type="AudioStream" uid="uid://dqpx6pnb66k03" path="res://assets/sounds/pato.ogg" id="5_6ahcu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skslj"]
+texture = ExtResource("1_51uel")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lp6kb"]
+texture = ExtResource("1_51uel")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[node name="LevelsPauseMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_skslj")
+
+[node name="Control" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 231.0
+offset_top = 80.5
+offset_right = 369.0
+offset_bottom = 199.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_skslj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="resume" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Retornar"
+
+[node name="reload" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "recomeçar"
+
+[node name="settings" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Configurações"
+
+[node name="exit" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sair"
+
+[node name="Settings" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 231.0
+offset_top = 80.5
+offset_right = 369.0
+offset_bottom = 199.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Settings/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lp6kb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k2hxd")
+text = "musica"
+
+[node name="VolumeSlider" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_6ahcu")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bus_name = "Musics"
+
+[node name="Button" type="Button" parent="Settings/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "controles"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k2hxd")
+text = "efeitos"
+
+[node name="VolumeSlider" parent="Settings/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_6ahcu")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bus_name = "Efects"
+
+[node name="exitSettings" type="Button" parent="Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "voltar"
+
+[node name="Quack" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+visible = false
+stream = ExtResource("5_6ahcu")
+bus = &"Efects"
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/reload" to="." method="_on_reload_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="changed" from="Settings/MarginContainer/VBoxContainer/HBoxContainer2/VolumeSlider" to="." method="_on_volume_slider_changed"]
+[connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/HBoxContainer2/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="Settings/MarginContainer/VBoxContainer/exitSettings" to="." method="_on_exit_settings_pressed"]

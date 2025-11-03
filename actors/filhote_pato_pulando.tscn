@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxkgp626h3ex4"]
+
+[ext_resource type="Texture2D" uid="uid://bi1xubk2u0kjx" path="res://assets/actors/filhote-pato/filhote_pato_pulando.png" id="1_ey5ix"]
+[ext_resource type="Script" uid="uid://dsiidmln3qyba" path="res://scripts/actors/filhote_pato_pulando.gd" id="1_qpa8l"]
+
+[sub_resource type="Animation" id="Animation_ey5ix"]
+resource_name = "idle"
+length = 1.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 4]
+}
+
+[sub_resource type="Animation" id="Animation_qpa8l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qpa8l"]
+_data = {
+&"RESET": SubResource("Animation_qpa8l"),
+&"idle": SubResource("Animation_ey5ix")
+}
+
+[node name="FilhotePatoPulando" type="CharacterBody2D"]
+script = ExtResource("1_qpa8l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qpa8l")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ey5ix")
+hframes = 5

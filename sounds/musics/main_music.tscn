@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxap5al632hlf"]
+
+[ext_resource type="AudioStream" uid="uid://dm1bll6p3skop" path="res://assets/sounds/Ilha.ogg" id="1_ulg77"]
+
+[node name="MainMusic" type="AudioStreamPlayer2D"]
+process_mode = 3
+stream = ExtResource("1_ulg77")
+autoplay = true
+bus = &"Musics"
+parameters/looping = true

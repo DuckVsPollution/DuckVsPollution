@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgcudx4s31mwb"]
+
+[ext_resource type="Script" uid="uid://d4hnae1tgn4lt" path="res://scripts/levels/river/enemy_river_2.gd" id="1_2kxrs"]
+[ext_resource type="Texture2D" uid="uid://b8fadrxnctb74" path="res://assets/actors/enemy-river/inimigo_saco_boiando.png" id="1_8kwne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kxrs"]
+atlas = ExtResource("1_8kwne")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w77nj"]
+atlas = ExtResource("1_8kwne")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1big"]
+atlas = ExtResource("1_8kwne")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ewc3"]
+atlas = ExtResource("1_8kwne")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w77nj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kxrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w77nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1big")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ewc3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyRiver2" type="RigidBody2D"]
+collision_layer = 130
+collision_mask = 0
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_2kxrs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -6)
+sprite_frames = SubResource("SpriteFrames_w77nj")
+autoplay = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-9, 5, -9, 6, -9, 7, -8, 7, 9, 7, 9, 5, 7, 4, 6, 2, 5, 1, 4, -6, 0, -6, -1, -5, -4, -4, -5, -3, -6, -2, -7, 1, -9, 2)
+
+[node name="BulletArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BulletArea"]
+polygon = PackedVector2Array(-9, 5, -9, 6, -9, 7, -8, 7, 9, 7, 9, 5, 7, 4, 6, 2, 5, 1, 4, -6, 0, -6, -1, -5, -4, -4, -5, -3, -6, -2, -7, 1, -9, 2)
+
+[connection signal="area_entered" from="BulletArea" to="." method="_on_bullet_area_area_entered"]

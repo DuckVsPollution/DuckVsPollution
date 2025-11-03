@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbeaxfp23f0wr"]
+
+[ext_resource type="Script" uid="uid://djb4axype8pk1" path="res://scripts/ui/ending_scene.gd" id="1_hmyej"]
+[ext_resource type="Texture2D" uid="uid://bogqx3mems0th" path="res://assets/ui/background.png" id="2_2euoe"]
+[ext_resource type="FontFile" uid="uid://ddmipjgckb4xp" path="res://assets/ui/font/ChiKareGo2.ttf" id="3_3ar1r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5myh"]
+texture = ExtResource("2_2euoe")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0fkdd"]
+font = ExtResource("3_3ar1r")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="EndingScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hmyej")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_u5myh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -20.0
+offset_right = 67.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Obrigado Por Jogar!"
+label_settings = SubResource("LabelSettings_0fkdd")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Sair"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]

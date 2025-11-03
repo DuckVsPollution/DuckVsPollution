@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqdamp5wmbqxo"]
+
+[ext_resource type="Script" uid="uid://dgg7tqskwoj50" path="res://scripts/levels/river/lata_river.gd" id="1_ekodn"]
+[ext_resource type="Texture2D" uid="uid://c00e2ode1ygqc" path="res://assets/lata/lata_rio_brilhando.png" id="2_ekodn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48q2u"]
+atlas = ExtResource("2_ekodn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7vkf"]
+atlas = ExtResource("2_ekodn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l4w8"]
+atlas = ExtResource("2_ekodn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud657"]
+atlas = ExtResource("2_ekodn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1uqh3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48q2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7vkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l4w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud657")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7g076"]
+radius = 16.4924
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_814wd"]
+radius = 18.4391
+
+[node name="LataRiver" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_ekodn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1uqh3")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7g076")
+
+[node name="PlayerArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+shape = SubResource("CircleShape2D_814wd")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]

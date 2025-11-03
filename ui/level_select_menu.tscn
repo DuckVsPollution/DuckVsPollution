@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=3 uid="uid://hvgrshhj0js2"]
+
+[ext_resource type="Texture2D" uid="uid://1mjpmlp8fedo" path="res://assets/ui/textbox_background.png" id="1_2uln7"]
+[ext_resource type="FontFile" uid="uid://ddmipjgckb4xp" path="res://assets/ui/font/ChiKareGo2.ttf" id="1_6wfmb"]
+[ext_resource type="Script" uid="uid://51aasjlk3aja" path="res://scripts/ui/level_select_menu.gd" id="1_nb4nh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6wfmb"]
+font = ExtResource("1_6wfmb")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_nb4nh"]
+font = ExtResource("1_6wfmb")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kltry"]
+font = ExtResource("1_6wfmb")
+
+[sub_resource type="LabelSettings" id="LabelSettings_buxvp"]
+font = ExtResource("1_6wfmb")
+
+[node name="LevelSelectMenu" type="CanvasLayer"]
+script = ExtResource("1_nb4nh")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(303, 135)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = -67.5
+offset_right = 151.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_2uln7")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "selecione o nivel"
+label_settings = SubResource("LabelSettings_6wfmb")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "nivel 1"
+label_settings = SubResource("LabelSettings_nb4nh")
+horizontal_alignment = 1
+
+[node name="level1" type="Button" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "nivel 1"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "nivel 2"
+label_settings = SubResource("LabelSettings_kltry")
+horizontal_alignment = 1
+
+[node name="level2" type="Button" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "nivel 2"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "nivel 3"
+label_settings = SubResource("LabelSettings_buxvp")
+horizontal_alignment = 1
+
+[node name="level3" type="Button" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(82, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "nivel 3"
+
+[connection signal="pressed" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/level3" to="." method="_on_level_3_pressed"]
