@@ -3,7 +3,7 @@ extends Node2D
 @export var can_scene: PackedScene
 @export var waterbottle_scene: PackedScene
 @export var enemy_scene: PackedScene
-
+@onready var chunks := $LevelChunks.get_children()
 @onready var game_completed = $GameCompleted
 @onready var player = %PlayerRiver
 @onready var game_over := $GameOver
@@ -20,6 +20,18 @@ var progress = 0;
 var speed = 1;
 var count = 3;
 
+func move_chunk_to_end(chunk):
+	var max_x := get_farthest_chunk_x()
+	chunk.position.x = max_x + 1072
+
+func get_farthest_chunk_x() -> float:
+	var max_x := 0
+	max_x = chunks[0].position.x
+	for c in chunks:
+		if c.position.x > max_x:
+			max_x = c.position.x
+	return max_x
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	LevelCore.levels_pause_avaliable = false
@@ -35,9 +47,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$ParallaxBackground.scroll_offset = Vector2(0, 0)
-	$ParallaxBackground/ParallaxLayer.motion_offset += Vector2(-0.475 * speed, 0)
-	
+	for chunk in chunks:
+		chunk.position.x -= 0.475 * speed
+		if chunk.position.x <= -1072:
+			move_chunk_to_end(chunk)
+
 	if player.health <= 0:
 		game_over.show()
 		%GamerOverSound.play()

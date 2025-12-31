@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=4 uid="uid://foj3cn1tb1i0"]
+[gd_scene load_steps=27 format=4 uid="uid://foj3cn1tb1i0"]
 
 [ext_resource type="PackedScene" uid="uid://ckeewn5x4aewe" path="res://levels/world.tscn" id="1_2c7eb"]
+[ext_resource type="Script" uid="uid://blfyji385t7bq" path="res://scripts/game.gd" id="1_bc3cr"]
 [ext_resource type="PackedScene" uid="uid://c68k4k52rmahq" path="res://actors/player.tscn" id="2_4u4fy"]
 [ext_resource type="PackedScene" uid="uid://c1fioye5wtqb3" path="res://actors/zaza.tscn" id="3_j015t"]
 [ext_resource type="PackedScene" uid="uid://dfa46m7opo21o" path="res://actors/filhote-pato.tscn" id="4_hlcqn"]
@@ -97,6 +98,7 @@ size = Vector2(50.5, 10)
 
 [node name="game" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_bc3cr")
 
 [node name="world" parent="." instance=ExtResource("1_2c7eb")]
 z_index = -1

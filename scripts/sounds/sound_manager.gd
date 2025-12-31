@@ -1,15 +1,21 @@
 extends Node
 
 var coleta: AudioStreamPlayer
-
 var level_complete_sound: AudioStreamPlayer
-
 var buy_sound: AudioStreamPlayer
-
 var audio_player: AudioStreamPlayer
-var default_focus_sound: AudioStream
+var default_focus_sound: AudioStreamPlayer
+var background_music_player: AudioStreamPlayer
+var background_musics: Dictionary[String, AudioStream]
+var current_background_music_key: String
 
 func _ready():
+	
+	background_musics = {
+		"default": load("res://assets/sounds/Ilha.ogg"),
+		"boss_fight": load("res://assets/sounds/Boss.ogg")
+	}
+	
 	buy_sound = AudioStreamPlayer.new()
 	buy_sound.bus = 'Efects'
 	buy_sound.stream = load("res://assets/sounds/Compras.ogg")
@@ -28,13 +34,26 @@ func _ready():
 	coleta.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(coleta)
 	
-	default_focus_sound = load("res://assets/sounds/MenuNavegando.ogg")
-	audio_player = AudioStreamPlayer.new()
-	audio_player.bus = 'Efects'
-	audio_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	default_focus_sound = AudioStreamPlayer.new()
+	default_focus_sound.bus = 'Efects'
+	default_focus_sound.stream = load("res://assets/sounds/MenuNavegando.ogg")
+	default_focus_sound.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(default_focus_sound)
+	
+	background_music_player = AudioStreamPlayer.new()
+	background_music_player.bus = 'Musics'
+	background_music_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(background_music_player)
+	set_background_music("default")
 
-	add_child(audio_player)
 	get_tree().node_added.connect(_on_node_added)
+
+func set_background_music(music_key: String):
+	
+	if music_key != current_background_music_key:
+		background_music_player.stream = background_musics.get(music_key)
+		background_music_player.play()
+		current_background_music_key = music_key
 
 func _on_node_added(node: Node):
 	if node is Button:
@@ -42,5 +61,4 @@ func _on_node_added(node: Node):
 
 func _play_focus_sound():
 	if default_focus_sound:
-		audio_player.stream = default_focus_sound
-		audio_player.play()
+		default_focus_sound.play()

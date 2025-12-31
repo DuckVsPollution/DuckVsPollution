@@ -2,7 +2,7 @@ extends Node2D
 var speed = 1;
 @export var enemy_scene: PackedScene
 @export var enemy_scene_2: PackedScene
-
+@onready var chunks := $LevelChunks.get_children()
 @onready var tree = get_tree()
 @onready var game_over = $GameOver
 @onready var player = %PlayerRiver
@@ -14,19 +14,34 @@ var speed = 1;
 
 var count = 3;
 
+func move_chunk_to_end(chunk):
+	var max_x := get_farthest_chunk_x()
+	chunk.position.x = max_x + 1072
+
+func get_farthest_chunk_x() -> float:
+	var max_x := 0
+	max_x = chunks[0].position.x
+	for c in chunks:
+		if c.position.x > max_x:
+			max_x = c.position.x
+	return max_x
+
 func _ready() -> void:
+	SoundManager.set_background_music("boss_fight")
 	LevelCore.levels_pause_avaliable = false
 	tree.paused = true
-	
+
 	start_timer_label.text = str(count)
 	start_count.show()
 	start_timer.start()
 
-
 func _process(delta: float) -> void:
-	$ParallaxBackground.scroll_offset = Vector2(0, 0)
-	$ParallaxBackground/ParallaxLayer.motion_offset += Vector2(-0.7 * speed, 0)
-	
+
+	for chunk in chunks:
+		chunk.position.x -= 0.475 * speed
+		if chunk.position.x <= -1072:
+			move_chunk_to_end(chunk)
+
 	if player.health <= 0:
 		game_over.show()
 		%GamerOverSound.play()

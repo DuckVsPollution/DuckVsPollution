@@ -2,11 +2,9 @@ extends Node2D
 @export var coin_scene: PackedScene
 @export var can_scene: PackedScene
 @export var waterbottle_scene: PackedScene
-
+@onready var chunks := $LevelChunks.get_children()
 @onready var game_over := $GameOver
 @onready var tree := get_tree()
-@onready var parallax_background = $ParallaxBackground
-@onready var parallax_layer = $ParallaxBackground/ParallaxLayer
 @onready var player = %PlayerRiver
 @onready var game_completed = $GameCompleted
 @onready var first_play_help_text = %FirstPlayHelpText
@@ -31,11 +29,25 @@ func _ready() -> void:
 		start_count.show()
 		start_timer.start()
 
+func move_chunk_to_end(chunk):
+	var max_x := get_farthest_chunk_x()
+	chunk.position.x = max_x + 1072
+
+func get_farthest_chunk_x() -> float:
+	var max_x := 0
+	max_x = chunks[0].position.x
+	for c in chunks:
+		if c.position.x > max_x:
+			max_x = c.position.x
+	return max_x
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$ParallaxBackground.scroll_offset = Vector2(0, 0)
-	$ParallaxBackground/ParallaxLayer.motion_offset += Vector2(-0.7 * speed, 0)
-	
+	for chunk in chunks:
+		chunk.position.x -= 0.475 * speed
+		if chunk.position.x <= -1072:
+			move_chunk_to_end(chunk)
+		
 	if player.coins >= 5:
 		game_completed.show()
 		SoundManager.level_complete_sound.play()
